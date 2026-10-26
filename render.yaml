@@ -1,0 +1,203 @@
+# Five separate free services share ONE Postgres DB and ONE workspace free-hour quota.
+# Not 5x the Render free hours. Use render-single.yaml when five nodes exceed quota.
+services:
+- type: web
+  name: pathfinder-edu-1
+  runtime: python
+  plan: free
+  rootDir: PATHFINDER_EDU
+  region: singapore
+  buildCommand: pip install -r requirements.txt
+  startCommand: python -u server.py
+  healthCheckPath: /healthz
+  envVars:
+  - key: PF_PUBLIC_MODE
+    value: '1'
+  - key: PF_NODE_ID
+    value: '1'
+  - key: PF_NODE_COUNT
+    value: '5'
+  - key: PF_NODE_CAPACITY
+    value: '4'
+  - key: PF_MAX_STUDENTS
+    value: '20'
+  - key: PF_AI_CONCURRENCY
+    value: '1'
+  - key: PF_ADMIN_USER
+    value: brans911
+  - key: PF_ADMIN_PASSWORD
+    sync: false
+  - key: PF_SIGNUP_CODE
+    sync: false
+  - key: DATABASE_URL
+    sync: false
+  - key: OPENAI_API_KEY
+    sync: false
+  - key: OPENAI_MODEL
+    value: gpt-4.1-mini
+  - key: PF_AI_MAX_OUTPUT_TOKENS
+    value: '4500'
+  - key: NEIS_API_KEY
+    sync: false
+  - key: DATA_GO_KR_API_KEY
+    sync: false
+- type: web
+  name: pathfinder-edu-2
+  runtime: python
+  plan: free
+  rootDir: PATHFINDER_EDU
+  region: singapore
+  buildCommand: pip install -r requirements.txt
+  startCommand: python -u server.py
+  healthCheckPath: /healthz
+  envVars:
+  - key: PF_PUBLIC_MODE
+    value: '1'
+  - key: PF_NODE_ID
+    value: '2'
+  - key: PF_NODE_COUNT
+    value: '5'
+  - key: PF_NODE_CAPACITY
+    value: '4'
+  - key: PF_MAX_STUDENTS
+    value: '20'
+  - key: PF_AI_CONCURRENCY
+    value: '1'
+  - key: PF_ADMIN_USER
+    value: brans911
+  - key: PF_ADMIN_PASSWORD
+    sync: false
+  - key: PF_SIGNUP_CODE
+    sync: false
+  - key: DATABASE_URL
+    sync: false
+  - key: OPENAI_API_KEY
+    sync: false
+  - key: OPENAI_MODEL
+    value: gpt-4.1-mini
+  - key: PF_AI_MAX_OUTPUT_TOKENS
+    value: '4500'
+  - key: NEIS_API_KEY
+    sync: false
+  - key: DATA_GO_KR_API_KEY
+    sync: false
+- type: web
+  name: pathfinder-edu-3
+  runtime: python
+  plan: free
+  rootDir: PATHFINDER_EDU
+  region: singapore
+  buildCommand: pip install -r requirements.txt
+  startCommand: python -u server.py
+  healthCheckPath: /healthz
+  envVars:
+  - key: PF_PUBLIC_MODE
+    value: '1'
+  - key: PF_NODE_ID
+    value: '3'
+  - key: PF_NODE_COUNT
+    value: '5'
+  - key: PF_NODE_CAPACITY
+    value: '4'
+  - key: PF_MAX_STUDENTS
+    value: '20'
+  - key: PF_AI_CONCURRENCY
+    value: '1'
+  - key: PF_ADMIN_USER
+    value: brans911
+  - key: PF_ADMIN_PASSWORD
+    sync: false
+  - key: PF_SIGNUP_CODE
+    sync: false
+  - key: DATABASE_URL
+    sync: false
+  - key: OPENAI_API_KEY
+    sync: false
+  - key: OPENAI_MODEL
+    value: gpt-4.1-mini
+  - key: PF_AI_MAX_OUTPUT_TOKENS
+    value: '4500'
+  - key: NEIS_API_KEY
+    sync: false
+  - key: DATA_GO_KR_API_KEY
+    sync: false
+- type: web
+  name: pathfinder-edu-4
+  runtime: python
+  plan: free
+  rootDir: PATHFINDER_EDU
+  region: singapore
+  buildCommand: pip install -r requirements.txt
+  startCommand: python -u server.py
+  healthCheckPath: /healthz
+  envVars:
+  - key: PF_PUBLIC_MODE
+    value: '1'
+  - key: PF_NODE_ID
+    value: '4'
+  - key: PF_NODE_COUNT
+    value: '5'
+  - key: PF_NODE_CAPACITY
+    value: '4'
+  - key: PF_MAX_STUDENTS
+    value: '20'
+  - key: PF_AI_CONCURRENCY
+    value: '1'
+  - key: PF_ADMIN_USER
+    value: brans911
+  - key: PF_ADMIN_PASSWORD
+    sync: false
+  - key: PF_SIGNUP_CODE
+    sync: false
+  - key: DATABASE_URL
+    sync: false
+  - key: OPENAI_API_KEY
+    sync: false
+  - key: OPENAI_MODEL
+    value: gpt-4.1-mini
+  - key: PF_AI_MAX_OUTPUT_TOKENS
+    value: '4500'
+  - key: NEIS_API_KEY
+    sync: false
+  - key: DATA_GO_KR_API_KEY
+    sync: false
+- type: web
+  name: pathfinder-edu-5
+  runtime: python
+  plan: free
+  rootDir: PATHFINDER_EDU
+  region: singapore
+  buildCommand: pip install -r requirements.txt
+  startCommand: python -u server.py
+  healthCheckPath: /healthz
+  envVars:
+  - key: PF_PUBLIC_MODE
+    value: '1'
+  - key: PF_NODE_ID
+    value: '5'
+  - key: PF_NODE_COUNT
+    value: '5'
+  - key: PF_NODE_CAPACITY
+    value: '4'
+  - key: PF_MAX_STUDENTS
+    value: '20'
+  - key: PF_AI_CONCURRENCY
+    value: '1'
+  - key: PF_ADMIN_USER
+    value: brans911
+  - key: PF_ADMIN_PASSWORD
+    sync: false
+  - key: PF_SIGNUP_CODE
+    sync: false
+  - key: DATABASE_URL
+    sync: false
+  - key: OPENAI_API_KEY
+    sync: false
+  - key: OPENAI_MODEL
+    value: gpt-4.1-mini
+  - key: PF_AI_MAX_OUTPUT_TOKENS
+    value: '4500'
+  - key: NEIS_API_KEY
+    sync: false
+  - key: DATA_GO_KR_API_KEY
+    sync: false
